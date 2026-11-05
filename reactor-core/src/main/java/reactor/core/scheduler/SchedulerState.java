@@ -116,7 +116,8 @@ final class SchedulerState<T> {
 				}
 			}
 			catch (InterruptedException e) {
-				//NO-OP
+				Thread.currentThread().interrupt();
+				sink.error(e);
 			}
 		}
 	}
